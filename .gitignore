@@ -9,6 +9,7 @@ extractoryoutube.egg-info/
 __pycache__/
 *.py[cod]
 .pytest_cache/
+extract/
 
 # Ignore Jupyter Notebook checkpoints
 .ipynb_checkpoints/
@@ -20,6 +21,7 @@ __pycache__/
 *.log
 *.out
 *.txt
+*.json
 
 # Ignore mypy type checker reports
 .mypy_cache/
