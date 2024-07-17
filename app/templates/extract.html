@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="extract_menu">
+    <form id="form_extract_trending" action="{{ url_for('extract_data') }}" method="post">
+        <input type="hidden" name="_method" value="PUT">
+        <button id="extract_trending" class="extract_button" type="button" onclick="openTrendingConfirmation()">Extract Trending</button>
+    </form>
+
+    <form id="form_extract_channels" action="{{ url_for('extract_data') }}" method="post">
+        <button id="extract_channels" class="extract_button" type="button" onclick="openChannelsConfirmation()">Extract Channels</button>
+    </form>
+</div>
+
+<div id="custom_confirmation_modal" class="modal">
+    <div id="modal_trending-content">
+        <p>Do you want to extract the trending data?</p>
+        <button id="cancel_trending" onclick="closeTrendingConfirmation()">Cancel</button>
+        <button id="confirm_trending" onclick="submitExtractTrending()">Confirm</button>
+    </div>
+</div>
+
+<div id="channels_confirmation_modal" class="modal">
+    <div id="modal_channels-content">
+        <p>Do you want to extract the channels data?</p>
+        <textarea id="channels_links" placeholder="Enter links, one per line" rows="10" cols="50"></textarea>
+        <button id="cancel_channels" onclick="closeChannelsConfirmation()">Cancel</button>
+        <button id="confirm_channels" onclick="submitExtractChannels()">Confirm</button>
+    </div>
+</div>
+
+<div id="modal_loading" class="modal">
+    <div id="modal_loading-content">
+        <div class="spinner"></div>
+        <p id="loading_text">Extracting data...</p>
+        <p id="loading_counter">Seconds: 0</p>
+    </div>
+</div>
+{% endblock %}
+
+

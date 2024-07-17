@@ -1,0 +1,324 @@
+/* CSS BASE */
+
+*{
+    margin: 0;
+    padding: 0;
+    background-color: #484848;
+}
+
+#barra{
+    width: auto;
+    height: 50px;
+    background-color: #383838;
+
+    color: white;
+    font-size: 30px;
+
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+#menu_container{
+    display: flex;
+}
+
+.button_menu {
+    width: 33.3%;
+    height: 40px;
+    background-color: #383838;
+    color: white;
+    font-size: 20px;
+}
+
+.button_menu:active,.button_menu.active {
+    background-color: #484848; 
+
+}
+
+
+
+/* CSS EXTRACT */
+
+#extract_menu {
+    display: flex;
+    margin-top: 10%;
+    flex-direction: column; 
+    align-items: center;    
+}
+
+.extract_button {
+    background-color: #D3D3D3;
+    border-color: white;
+    width: 350px;
+    height: 50px;
+    margin: 10px;
+    
+    font-size: 20px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#modal_trending-content,
+#modal_channels-content {
+    background-color: white;
+    font-size: 15px;
+    margin: 20% auto;
+    padding: 30px;
+    border: 3px solid #888;
+    width: 30%;
+    text-align: center;
+}
+
+#modal_trending-content button,
+#modal_channels-content button {
+    font-size: 15px;
+    margin: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#modal_trending-content p,
+#modal_channels-content p {
+    font-size: 20px;
+    background-color: white;
+}
+
+#modal_trending-content button:hover,
+#modal_channels-content button:hover {
+    background-color: #f0f0f0;
+}
+
+#confirm_trending,
+#confirm_channels {
+    background-color: green;
+    color: white;
+}
+
+#cancel_trending,
+#cancel_channels {
+    background-color: red;
+    color: white;
+}
+
+#channels_links {
+    resize: none;
+    background-color: #D3D3D3;
+    padding: 10px;
+}
+
+#modal_loading {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+#modal_loading-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 3px solid #888;
+    width: 300px;
+    text-align: center;
+}
+
+#modal_loading-content p {
+    background-color: white;
+    font-size: 20px;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border: 5px solid #888;
+    border-top: 5px solid #00bfff; 
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px; 
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+
+/* CSS DATA */
+
+ol {
+    list-style-type: none;
+    padding: 0;
+}
+
+#channel_content, #video_content {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+#banner, .thumb {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+}
+
+.channel-info, .video-info {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+#icon {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    margin-right: 20px; 
+}
+
+.channel-details, .video-details {
+    text-align: left;
+    flex: 1;
+    padding: 10px 20px;
+}
+
+.channel-details p, .video-details p {
+    margin: 5px 0;
+}
+
+.channel_name, .video_title {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#data_buttons, #data_buttons_videos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    padding: 0 20px;
+}
+
+.left-buttons, .right-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#data_buttons button, #data_buttons_videos button,
+#search_input, #search_videos_input {
+    padding: 10px 20px;
+    font-size: 15px;
+    border: 1px solid #888;
+    border-radius: 5px;
+    background-color: #b4b4b4;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#data_buttons button:hover, #data_buttons_videos button:hover,
+#search_input:hover, #search_videos_input:hover {
+    background-color: #a2a2a2;
+}
+
+#search_input, #search_videos_input {
+    width: 200px;
+    outline: none;
+}
+
+.video-item {
+    margin-bottom: 20px;
+}
+
+.video-content {
+    margin: 20px;
+    border: 4px solid #ccc;
+    border-radius: 8px;
+    display: flex;
+    background-color: #f9f9f9;
+}
+
+.thumb {
+    width: 350px;
+    height: auto;
+    border-radius: 8px 0 0 8px;
+}
+
+.video-details {
+    flex: 1;
+    padding: 20px;
+}
+
+.video-details p {
+    margin: 5px 0;
+}
+
+.video_title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+
+/* CSS MENSUREMENTS */
+
+#dash-container {
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+iframe {
+    border: none;
+    background-color: #727272;
+    width: 100%;
+    height: 600px;
+}
+
+#meansurements_buttons {
+    display: flex;
+    justify-content: center;
+}
+
+#meansurements_channels_button, #meansurements_videos_button{
+    height: 30px;
+    margin: 10px;
+    width: 20%;
+    color: white;
+    background-color: #b4b4b4;
+    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+#meansurements_channels_button:hover, #meansurements_videos_button:hover{
+    background-color: #a2a2a2;
+}

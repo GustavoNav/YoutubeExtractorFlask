@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="data_buttons">
+    <div class="left-buttons">
+        <button id="button_channels">Channels</button>
+        <button id="button_videos">Videos</button>
+    </div>
+    <div class="right-buttons">
+        <button id="sort_az">Sort A-Z</button>
+        <button id="sort_za">Sort Z-A</button>
+        <input type="text" id="search_input" placeholder="Search channels...">
+    </div>
+</div>
+
+<ol id="channel_list"> 
+    {% for i in info %} 
+    <li class="channel-item">
+        <div id="channel_content">
+            <div><img id="banner" src="{{ i.banner }}" alt="channel Banner"></div>
+            <div class="channel-info">
+                <img id="icon" src="{{ i.icon }}" alt="channel icon">
+                <div class="channel-details">
+                    <p class="channel_name">{{ i.channel_name }}</p>
+                    <p><strong>Subscriptions:</strong> {{ i.subscriptions }}</p>
+                    <p><strong>Views:</strong> {{ i.views }}</p>
+                    <p><strong>Vídeos:</strong> {{ i.videos }}</p>
+                    <p><strong>Creation Date:</strong> {{ i.date_creation }}</p>
+                    <p><strong>Location:</strong> {{ i.channel_location }}</p>
+                </div>
+            </div>
+        </div>
+    </li>
+    {% endfor %} 
+</ol>
+{% endblock %}
+
