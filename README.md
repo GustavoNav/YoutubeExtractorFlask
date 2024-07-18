@@ -3,9 +3,10 @@
 ## Descrição
 YoutubeExtractorFlask é um projeto pessoal desenvolvido para praticar conceitos de Engenharia de Dados, Análise de Dados e Ciência de Dados. Este projeto permite a extração de dados do YouTube, oferecendo atualmente duas funcionalidades:
 
-Extração de dados atuais de um canal.
+-Extração de dados atuais de um canal.
 - Extração de vídeos em alta (trending), incluindo os dados de todos os vídeos nos trending topics e seus respectivos canais.
-- A aplicação exibe para o usuário todos os canais e vídeos extraídos, juntamente com suas informações detalhadas. Além disso, são apresentadas métricas e gráficos dos dados coletados, utilizando as bibliotecas Dash e Plotly.
+
+A aplicação exibe para o usuário todos os canais e vídeos extraídos, juntamente com suas informações detalhadas. Além disso, são apresentadas métricas e gráficos dos dados coletados, utilizando as bibliotecas Dash e Plotly.
 
 A aplicação foi desenvolvida com Flask, um framework web em Python. O backend foi implementado inteiramente em Python, enquanto o frontend utiliza recursos do Flask, CSS e JavaScript.
 
