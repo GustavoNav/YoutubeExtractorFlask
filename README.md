@@ -36,7 +36,7 @@ pip install .
 
 ### Banco de Dados
 O banco de dados utilizados é Mysql, a conexão foi criada utilizando o DBeaver, detalhes da conexão no arquivo *database_connector*.
-![alt text](modelo_bd.png)
+
 ```
 CREATE DATABASE IF NOT EXISTS youtube_extractor_db;
 
