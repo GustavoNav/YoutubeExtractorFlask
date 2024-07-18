@@ -86,7 +86,15 @@ CREATE TABLE IF NOT EXISTS `youtube_extractor_db`.`tb_videos` (
 ## Links Úteis 
 [Python](https://www.python.org/)
 
+[Flask](https://flask.palletsprojects.com/en/3.0.x/)
+
+[Requests](https://docs.python-requests.org/en/latest/index.html)
+
 [BeatifulSoup](https://beautiful-soup-4.readthedocs.io/en/latest/)
 
-[Youtube Trending](https://www.youtube.com/feed/trending)
+[Dash](https://dash.plotly.com/)
+
+[Plotly](https://plotly.com/python/)
+
+[Youtube](https://www.youtube.com)
 
