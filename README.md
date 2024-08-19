@@ -20,7 +20,7 @@ Primeiro clone o repositório, crie o ambiente virtual, ative o ambiente e insta
 ### Windows
 
 ```
-git clone https://github.com/GustavoNav/Data-Engineering-ETL-Youtube
+git clone https://github.com/GustavoNav/YoutubeExtractorFlask
 python3 -m venv nome_do_ambiente
 nome_do_ambiente\Scripts\activate
 pip install .
@@ -28,7 +28,7 @@ pip install .
 ### Mac/Linux
 
 ```
-git clone https://github.com/GustavoNav/ETL-Youtube
+git clone https://github.com/GustavoNav/YoutubeExtractorFlask
 python3 -m venv nome_do_ambiente
 source nome_do_ambiente/bin/activate
 pip install .
