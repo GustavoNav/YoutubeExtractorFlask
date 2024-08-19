@@ -2,8 +2,8 @@ import time
 from app import app
 from flask import jsonify, render_template, request
 
-from app.dash.ChannelsDash import create_channels_dash, create_channels_layout
-from app.dash.VideosDash import create_videos_dash, create_videos_layout
+from app.dashboards.ChannelsDash import create_channels_dash, create_channels_layout
+from app.dashboards.VideosDash import create_videos_dash, create_videos_layout
 from app.db.database_connector import DatabaseConnector
 from app.db.database_repository import DatabaseRepository
 from app.pipes.collect_trending.run import run_pipeline_trending

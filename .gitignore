@@ -1,37 +1,3 @@
-# Ignore the virtual environment directory
 venv/
-.env/
-build/
-dist/
-extractoryoutube.egg-info/
-
-# Ignore Python cache files
 __pycache__/
-*.py[cod]
-.pytest_cache/
-extract/
-
-# Ignore Jupyter Notebook checkpoints
-.ipynb_checkpoints/
-
-# Ignore environment variables file
-.env
-
-# Ignore log files and other output
-*.log
-*.out
-*.txt
 *.json
-
-# Ignore mypy type checker reports
-.mypy_cache/
-.dmypy.json
-dmypy.json
-
-# Ignore Pyre type checker reports
-.pyre/
-
-# Ignore coverage reports
-.coverage
-coverage.xml
-htmlcov/

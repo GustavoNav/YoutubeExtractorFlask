@@ -1,4 +1,3 @@
-
 from app.pipes.collect_trending.src.stages.extract.extract_html import ExtractHtml
 from app.pipes.collect_video.run import run_pipeline_videos
 from app.pipes.collect_channels.run import run_pipeline_channels

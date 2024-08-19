@@ -10,8 +10,7 @@ from app.db.database_repository import DatabaseRepository
 
 
 def create_videos_dash(flask_app):
-    dash_app = Dash(server = flask_app, name='Dashboard', url_base_pathname='/videos/') 
-
+    dash_app = Dash(server=flask_app, name='Dashboard', url_base_pathname='/videos/')
     return dash_app
 
 def create_videos_layout():
@@ -27,24 +26,31 @@ def create_videos_layout():
 
     df_grouped = df.groupby('video_date')['views'].mean().reset_index()
 
+    # Convert duration to minutes and handle NaN values
     df['duration_minutes'] = df['duration'].apply(convert_to_minutes)
-    df['log_minutes'] = np.log(df['duration_minutes'].astype(float))
+    df = df.dropna(subset=['duration_minutes'])
 
-    df['log_views'] = np.log(df['views'].astype(float))
-    df['log_likes'] = np.log(df['likes'].astype(float))
-    df['log_comments'] = np.log(df['comments'].astype(float))
+    # Calculate log transformations
+    df['log_minutes'] = np.log(df['duration_minutes'].astype(float).replace(0, np.nan))
+    df['log_views'] = np.log(df['views'].astype(float).replace(0, np.nan))
+    df['log_likes'] = np.log(df['likes'].astype(float).replace(0, np.nan))
+    df['log_comments'] = np.log(df['comments'].astype(float).replace(0, np.nan))
 
+    # Calculate mean duration in minutes and convert to hh:mm:ss
     mean_duration_minutes = df['duration_minutes'].mean()
-
-    # Converter a média de minutos de volta para o formato hh:mm:ss
-    mean_hours = int(mean_duration_minutes // 60)
-    mean_minutes = int(mean_duration_minutes % 60)
-    mean_seconds = int((mean_duration_minutes * 60) % 60)
+    
+    if pd.isna(mean_duration_minutes):
+        mean_hours = mean_minutes = mean_seconds = 0
+    else:
+        mean_hours = int(mean_duration_minutes // 60)
+        mean_minutes = int(mean_duration_minutes % 60)
+        mean_seconds = int((mean_duration_minutes * 60) % 60)
 
     mean_duration_formatted = f'{mean_hours:02}:{mean_minutes:02}:{mean_seconds:02}'
+    
     total_videos = len(df)
-    max_views =  humanize.intword(df['views'].max())
-    min_views =  humanize.intword(df['views'].min())
+    max_views = humanize.intword(df['views'].max())
+    min_views = humanize.intword(df['views'].min())
 
 
 

@@ -8,7 +8,7 @@ class DatabaseConnector:
             host='localhost',
             port=3306,
             database='youtube_extractor_db',
-            user='root',
+            user='adm',
             passwd='adm321'
         )
         cls.connection = db_connection

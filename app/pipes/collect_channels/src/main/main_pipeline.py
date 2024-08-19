@@ -7,6 +7,7 @@ class MainPipeline():
         self.__transform_html = TransformHtml()
 
     def run_pipeline(self, urls):
+        print('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', urls)
         self.__extract_html.extract(urls)
         channels_informations = self.__transform_html.transform()
 

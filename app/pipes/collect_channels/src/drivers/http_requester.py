@@ -31,10 +31,13 @@ class HttpRequester():
     
 
     def __save(self, sites):
-
         sites_serializable = [str(site) for site in sites]
 
-        file_path = os.path.abspath(os.path.join(__file__, '../../../export/extract/html.json'))
+        dir_path = os.path.abspath(os.path.join(__file__, '../../../export/extract'))
+
+        os.makedirs(dir_path, exist_ok=True)
+
+        file_path = os.path.join(dir_path, 'html.json')
 
         with open(file_path, 'w', encoding='utf-8') as file:
-            json.dump(sites_serializable, file, ensure_ascii=False, indent=4) 
+            json.dump(sites_serializable, file, ensure_ascii=False, indent=4)
