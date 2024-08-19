@@ -23,7 +23,7 @@ Primeiro clone o repositório, crie o ambiente virtual, ative o ambiente e insta
 git clone https://github.com/GustavoNav/YoutubeExtractorFlask
 python3 -m venv nome_do_ambiente
 nome_do_ambiente\Scripts\activate
-pip install .
+pip install -r requirements.txt
 ```
 ### Mac/Linux
 
@@ -31,56 +31,48 @@ pip install .
 git clone https://github.com/GustavoNav/YoutubeExtractorFlask
 python3 -m venv nome_do_ambiente
 source nome_do_ambiente/bin/activate
-pip install .
+pip install -r requirements.txt
 ```
 
 ### Banco de Dados
-O banco de dados utilizados é Mysql, a conexão foi criada utilizando o DBeaver, detalhes da conexão no arquivo *database_connector*.
+O banco de dados utilizados é Mysql, para esse caso utilizei Docker, detalhes da conexão no arquivo *database_connector*.
+
+Criar imagem do my_sql, as tabelas são criadas automaticamente, utilizando o arquivo db.sql:
 
 ```
-CREATE DATABASE IF NOT EXISTS youtube_extractor_db;
-
-CREATE TABLE IF NOT EXISTS `youtube_extractor_db`.`tb_channel_about` (
-    channel_id VARCHAR(255) PRIMARY KEY,
-    date_creation DATE,
-    channel_location VARCHAR(255),
-    extraction_date DATETIME
-) ENGINE=INNODB;
-
-CREATE TABLE IF NOT EXISTS `youtube_extractor_db`.`tb_channel_metrics` (
-    metric_id BIGINT NOT NULL AUTO_INCREMENT,
-    channel_id VARCHAR(255),
-    channel_name VARCHAR(255),
-    icon VARCHAR(255),
-    banner VARCHAR(255),
-    subscriptions BIGINT,
-    videos BIGINT,
-    views BIGINT,
-    extraction_date DATETIME,
-    PRIMARY KEY (metric_id),
-    FOREIGN KEY (channel_id) REFERENCES tb_channel_about(channel_id)
-) ENGINE=INNODB;
-
-CREATE TABLE IF NOT EXISTS `youtube_extractor_db`.`tb_videos` (
-    video_id BIGINT NOT NULL AUTO_INCREMENT,
-    channel_id VARCHAR(255) NOT NULL,
-    channel_link VARCHAR(255) not null,
-    title VARCHAR(255),
-    likes BIGINT,
-    views BIGINT,
-    comments BIGINT,
-    duration TIME,
-    video_date DATE,
-    thumb VARCHAR(255),
-    trending BOOLEAN,
-    family_friend BOOLEAN,
-    extraction_date DATETIME,
-    PRIMARY KEY (video_id),
-    FOREIGN KEY (channel_id) REFERENCES tb_channel_about(channel_id)
-) ENGINE=INNODB;
+docker build -t my_mysql_image ./database
 ```
 
+Inicie o container na porta 3306
 
+```
+docker run --name my_mysql_container -d -p 3306:3306 my_mysql_image
+```
+
+Para não perder os dados ao encerrar o container, crie um volume, veja mais a respeito na documentação [Docker](https://docs.docker.com/engine/storage/volumes/).
+
+
+### Iniciar o Projeto
+Uma vez que as dependências tenham sido instaladas e banco de dados configurado. Configure o Pythonpath para o seu diretório corrente.
+
+Execute o comando pwd para ver o caminho absoluto para o diretório corrente:
+
+```
+pwd
+```
+Copie o caminho absoluto e então execute:
+
+```
+export PYTHONPATH=/caminho_absoluto
+```
+
+Agora basta executar:
+
+```
+flask run
+```
+
+Acesse o endereço mostrado no Terminal e aproveite!
 
 
 ## Links Úteis 
