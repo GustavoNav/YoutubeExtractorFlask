@@ -14,7 +14,7 @@ A aplicação foi desenvolvida com Flask, um framework web em Python. O backend 
 A arquitetura do projeto e ideia foram inspirados no conjunto de aulas de ETL Pipeline do [Programador Lhama](https://www.youtube.com/watch?v=D5mwXMMA0e0&list=PLAgbpJQADBGLuI1oR39tVfELOEZJSSbxQ).
 
 ## Requisitos
-Projeto testado no Python 3.12.
+O projeto deve funcionar normalmente com Python 3.10
 
 Primeiro clone o repositório, crie o ambiente virtual, ative o ambiente e instale o projeto e seus requerimentos.
 ### Windows
